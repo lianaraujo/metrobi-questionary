@@ -7,7 +7,6 @@ def getMaxValue(types, cap):
     for i in types:
         price.append(i["price"])
         wt.append(i["kg"])
-    print(wt, price)
 
     # creating a list that represents the capacity of the bag
     bag = [0 for i in range(cap + 1)]
@@ -19,7 +18,6 @@ def getMaxValue(types, cap):
         for j in range(n):
             if (wt[j] <= i):
                 bag[i] = max(bag[i], bag[i - wt[j]] + price[j])
-                print(bag)
 
     return bag[cap]
 

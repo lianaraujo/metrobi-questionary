@@ -2,27 +2,26 @@ def getMaxValue(types, cap):
     price = []
     wt = []
     n = len(types)
-  # the types are divided in two lists one for prices the other for weights
+
+    # creating lists for value and weight
     for i in types:
         price.append(i["price"])
         wt.append(i["kg"])
-  # a clean table is created with this list comprehension
-    K = [[0 for x in range(cap + 1)] for x in range(n + 1)]
+    print(wt, price)
 
-  # the nested loop fills the values for the table
-    for i in range(n + 1):
-        for w in range(cap + 1):
-          # this sets the first row and column to 0
-            if i == 0 or w == 0:
-                K[i][w] = 0
-  # this checks if the current weight is less than the maximun the cell can hold
-  # and include or exclude the object depending which value is greater
-            elif wt[i-1] <= w:
-                K[i][w] = max(price[i-1] + K[i-1][w-wt[i-1]], K[i-1][w])
-  # this part is for when the weight is greater than the maximun a cell can hold
-            else:
-                K[i][w] = K[i-1][w]
-    return K[n][cap]
+    # creating a list that represents the capacity of the bag
+    bag = [0 for i in range(cap + 1)]
+
+    # each run of this for loop will check if the current index of the bag
+    # can hold more weight and when it can it adds the best value it can get
+    # until its full
+    for i in range(cap + 1):
+        for j in range(n):
+            if (wt[j] <= i):
+                bag[i] = max(bag[i], bag[i - wt[j]] + price[j])
+                print(bag)
+
+    return bag[cap]
 
 
 carrotTypes = [{"kg": 5, "price": 100}, {

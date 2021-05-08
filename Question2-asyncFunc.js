@@ -2,21 +2,26 @@ const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-const list = ['a', 'b', 'c', 'd']
+const list = ['a', 'b', 'c', 'd', 'e']
 let time = 1000
 
 async function timer() {
   await sleep(time);
 }
 
+let first = true
+
 const asyncFunc = async () => {
   for (const i of list) {
     await timer()
     console.log(i);
-    time = time * 2;
+    // added this if statement for the first run, now it works properly 
+    if (first === false) {
+      time = time * 2;
+    }
+    first = false
     console.log(time);
   }
-  time = 1
 }
 
 asyncFunc()

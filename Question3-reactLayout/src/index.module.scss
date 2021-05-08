@@ -1,3 +1,8 @@
+.flex_justify_content {
+  display: flex;
+  justify-content: center;
+}
+
 .content {
   max-width: 900px;
   margin: 0 auto;
@@ -7,17 +12,15 @@
 
   .header {
     background-color: #54d4eb;
-    display: flex;
     align-items: center;
-    justify-content: center;
     margin-bottom: .4rem;
-    height: 7%;
+    height: 3rem;
   }
 
   .top {
-    height: 70%;
     display: flex;
     margin-bottom: .4rem;
+    flex-grow: 4;
 
     h1 {
       margin-top: .5rem;
@@ -27,44 +30,36 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      width: 40%;
+      flex-grow: 1;
+
       .hero {
-        height: 35%;
         background-color: #d7c9e3;
-        display: flex;
-        justify-content: center;
         margin-right: .3rem;
         margin-bottom: .3rem;
+        flex-grow: 1;  
 
       }
       .sidebar {
-        height: 65%;
         background-color: #9fc363;
-        display: flex;
-        justify-content: center;
         margin-right: .3rem;
+        flex-grow: 2;  
 
       }
     }
     .content_column{
-      height: 100%;
-      width: 60%;
       display: flex;
       flex-direction: column;
-      
+      flex-grow: 2;
+
       .main {
-        height: 80%;
         background-color: #f5c632;
-        display: flex;
-        justify-content: center;
         margin-bottom: .3rem;
+        flex-grow: 2;  
 
       }
       .extra {
-        height: 20%;
+        flex-grow: 1;  
         background-color: #898989;
-        display: flex;
-        justify-content: center;
       }
     }
   }
@@ -72,32 +67,28 @@
   .bottom {
     display: flex;
     margin-bottom: .4rem;
-    height: 16%;
+    flex-grow: 1;
+
     h1 {
       margin-top: .5rem;
     }
+
     .images {
-      width: 70%;
-      display: flex;
-      justify-content: center;
       background-color: #2bb673;
       margin-right: .3rem;
+      flex-grow: 3;  
 
     }
     .posts {
-      width: 30%;
-      display: flex;
-      justify-content: center;
       background-color: #f3ccde;
+      flex-grow: 1;  
 
     }
   }
 
   .footer {
-    height: 7%;
     background-color: #ffa500;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    height: 3rem;
   }
 }
